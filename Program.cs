@@ -6,58 +6,35 @@ public class Program
 {
     public static void Main()
     {
-        WorkTask task = new WorkTask
-        {
-            Id = 1,
-            Title = "Hello World",
-            Priority = Priority.High,
-            IsCompleted = true,
-
-        };
+        WorkTask task = new WorkTask(1,"dokimi", Priority.Low );
+     
         
 
 
-        WorkTask task2 = new WorkTask
+        WorkTask task2 = new WorkTask(2,"dokimi", Priority.Medium);
+       
+
+        WorkTask task3 = new WorkTask(3,"dokimi", Priority.High);
+
+
+
+        WorkTask task4 = new WorkTask(4,"dokimi", Priority.Medium);
+
+        
+        try
         {
-            Id = 2,
-            Title = "Hello fuck u",
-            Priority = Priority.Low,
-            IsCompleted = false
-
-        };
-
-        WorkTask task3 = new WorkTask
+            WorkTask Invalidtask = new WorkTask(0, "", Priority.Low);
+        }
+        catch (ArgumentException ex)
         {
-            Id = 3,
-            Title = "Hello World",
-            Priority = Priority.Low,
-            IsCompleted = true,
-        };
+            Console.WriteLine(ex.Message);
+        }
 
-
-        WorkTask task4 = new WorkTask
-        {
-            Id = 4,
-            Title = "Hello World",
-            Priority = Priority.Low,
-            IsCompleted = false
-
-
-        };
-        WorkTask task5 = new WorkTask
-        {
-            Id = 5,
-            Title = "Hello World",
-            Priority = Priority.Low,
-            IsCompleted = true,
-
-
-        };
 
 
         List<WorkTask> workTasks = new List<WorkTask>
         {
-            task, task2, task3, task4, task5
+            task, task2, task3, task4
         };
 
 
