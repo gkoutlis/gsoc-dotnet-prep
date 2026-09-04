@@ -48,6 +48,14 @@ public class Program
         {
             Console.WriteLine(item.Title);
         }
+        
+        Player player1 = new Player("Thaladin");
+
+        Console.WriteLine($"Before: {player1.Name} - Level {player1.Level} - XP {player1.Xp}");
+
+        player1.AddXp(500);
+
+        Console.WriteLine($"After: {player1.Name} - Level {player1.Level} - XP {player1.Xp}");
     }
 
     public void CompleteTask(WorkTask task)
@@ -101,7 +109,8 @@ public class Program
     //  .Where(task=> !task.IsCompleted)
     //  .ToList();
     // }
-        
+
+    
 }
 
     
