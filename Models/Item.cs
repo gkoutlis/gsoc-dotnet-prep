@@ -12,7 +12,7 @@ public class Item
     {
         if (string.IsNullOrWhiteSpace(name))
         {
-            throw new ArgumentException("Name must not be empty", nameof(name));
+            throw new InvalidItemException("Name must not be empty", nameof(name));
         }
         Name = name;
         Rarity = rarity;
@@ -28,7 +28,7 @@ public class Weapon : Item
     {
         if (damage <= 0)
         {
-            throw new ArgumentException("Damage must be greater than 0", nameof(damage));
+            throw new InvalidItemException("Damage must be greater than 0", nameof(damage));
         }
 
         Damage = damage;
@@ -44,7 +44,7 @@ public class Potion : Item, IUsable
     {
         if (healingAmount <= 0)
         {
-            throw new ArgumentException("Healing amount must be greater than 0", nameof(healingAmount));
+            throw new InvalidItemException("Healing amount must be greater than 0", nameof(healingAmount));
             
         }
         HealingAmount = healingAmount;
@@ -64,9 +64,8 @@ public class Scroll : Item, IUsable
     {
         if (spellPower <= 0)
         {
-            throw new ArgumentException(
-                "Spell power must be greater than 0",
-                nameof(spellPower));
+            throw new InvalidItemException("Spell power must be greater than 0", nameof(spellPower));
+
         }
         SpellPower = spellPower;
     }
