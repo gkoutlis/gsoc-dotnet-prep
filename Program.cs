@@ -7,6 +7,10 @@ public class Program
 {
     public static void Main()
     {
+        Storage<Item> itemStorage = new();
+        
+        
+        
         WorkTask task = new WorkTask(1,"dokimi", Priority.Low );
      
         
@@ -45,6 +49,16 @@ public class Program
         foreach (var item in usables)
         {
             item.Use();
+        }
+        
+        itemStorage.AddItem(potion);
+        itemStorage.AddItem(scroll);
+        
+        var allΙtems = itemStorage.GetAllItems();
+
+        foreach (var item in allΙtems)
+        {
+            Console.WriteLine(item.Name);
         }
 
         var tasksQuery = from w in workTasks
