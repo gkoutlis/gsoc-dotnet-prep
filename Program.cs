@@ -73,6 +73,7 @@ public class Program
         }
         
         Player player1 = new Player("Thaladin");
+        player1.OnLevelUp = level => Console.WriteLine($"Leveled up to {level}!");  
 
         Console.WriteLine($"Before: {player1.Name} - Level {player1.Level} - XP {player1.Xp}");
 

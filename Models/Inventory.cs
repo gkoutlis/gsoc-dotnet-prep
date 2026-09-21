@@ -81,4 +81,10 @@ public class Inventory
             .FirstOrDefault();
             
     }
+
+    public List<Item> FindItems(Func<Item, bool> predicate)
+    {
+        return _items.Where(predicate).ToList();
+    }
+    
 }
