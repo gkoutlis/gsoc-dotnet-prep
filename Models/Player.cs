@@ -5,6 +5,9 @@ public class Player
     public string Name { get; private set; }
     public int Level { get; private set; }
     public int Xp { get; private set; }
+    public Weapon? EquippedWeapon { get; private set; }
+    
+    
 
     public Player(string name)
     {
@@ -24,18 +27,39 @@ public class Player
             throw new ArgumentException("amount must be greater than zero", nameof(amount));
         }
         Xp += amount;
-
         
         while (Xp >= 100)
         {
             LevelUp();
             Xp -= 100;
         }
-        
     }
-    
     private void LevelUp()
     {
         Level++;
     }
+
+    public void Equip(Weapon weapon)
+    {
+        
+        
+        ArgumentNullException.ThrowIfNull(weapon);
+        
+        EquippedWeapon = weapon;
+    }
+    
+    public void  Unequip()
+    {
+        EquippedWeapon =  null;
+    }
+    
+    public int GetEquippedDamage()
+    {
+        return EquippedWeapon?. Damage ?? 0 ;
+    }
+
+    
+    
+    
 }
+

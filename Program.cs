@@ -26,6 +26,7 @@ public class Program
         WorkTask task4 = new WorkTask(4,"dokimi", Priority.Medium);
         Potion potion = new Potion("HealthPotion", Rarity.Common, 50);
         Scroll scroll = new Scroll("Fire Scroll", Rarity.Rare, 80);
+        Weapon weapon = new Weapon("colosal", Rarity.Common, 54);
         
         try
         {
@@ -78,7 +79,13 @@ public class Program
         player1.AddXp(500);
 
         Console.WriteLine($"After: {player1.Name} - Level {player1.Level} - XP {player1.Xp}");
+        
+        Console.WriteLine($"Damage before equip:{player1.GetEquippedDamage()}");
+        player1.Equip(weapon);
+        Console.WriteLine($"Equipped damage:{player1.GetEquippedDamage()}");
     }
+
+    
 
     public void CompleteTask(WorkTask task)
     {
