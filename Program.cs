@@ -73,11 +73,13 @@ public class Program
         }
         
         Player player1 = new Player("Thaladin");
-        player1.OnLevelUp = level => Console.WriteLine($"Leveled up to {level}!");  
+        var guildChat = new GuildChat();
+        player1.OnLevelUp += guildChat.MethodName;
+        player1.OnLevelUp += (level,name) => Console.WriteLine($"Leveled up to {level}!");  
 
         Console.WriteLine($"Before: {player1.Name} - Level {player1.Level} - XP {player1.Xp}");
 
-        player1.AddXp(500);
+        player1.AddXp(3500);
 
         Console.WriteLine($"After: {player1.Name} - Level {player1.Level} - XP {player1.Xp}");
         

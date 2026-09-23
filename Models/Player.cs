@@ -6,7 +6,7 @@ public class Player
     public int Level { get; private set; }
     public int Xp { get; private set; }
     public Weapon? EquippedWeapon { get; private set; }
-    public Action<int>? OnLevelUp { get; set; }
+    public event Action<int, string>? OnLevelUp ;
     
     
 
@@ -38,7 +38,7 @@ public class Player
     private void LevelUp()
     {
         Level++;
-        OnLevelUp?.Invoke(Level);
+        OnLevelUp?.Invoke(Level, Name);
     }
 
     public void Equip(Weapon weapon)
